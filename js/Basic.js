@@ -239,6 +239,14 @@ const storeDescription = {
 
         //Мітки
 
+        const Fruits= ["aple","Orange","Garnet"];
+
+        for(let fruct of Fruits)
+        {
+            console.log(fruct);
+        }
+
+
         first:for(let i=0;i<=3;i++)
         {
             console.log(`First level:${i}`);
