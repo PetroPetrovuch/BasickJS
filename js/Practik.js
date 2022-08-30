@@ -207,3 +207,158 @@ console.log(fib(7));
 const list =[1,2,3,4];
 console.log(typeof(list.join("")));
 
+
+//Робота з Обєктами та масивами
+
+
+const personalPlanPeter = {
+    name: "Peter",
+    age: "29",
+    skills: {
+        languages: ['ru', 'eng'],
+        programmingLangs: {
+            js: '20%',
+            php: '10%'
+        },
+        exp: '1 month'
+    },
+    showAgeAndLangs:function(thisObj)
+    {
+        let {languages} = thisObj.skills;
+        return `Мне ${thisObj.age} и я владею языками: ${languages.join(" ").toUpperCase()}`;
+    }
+};
+
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
+
+//console.log(Object.keys(personalPlanPeter).length);
+//console.log(Array.isArray(personalPlanPeter));
+
+function showProgrammingLangs(plan) {
+
+    let str = '';
+    let {programmingLangs} = plan.skills;
+    for(let key in programmingLangs)
+    {
+        str+=`Язык ${key} изучен на ${programmingLangs[key]}\n`;
+    }
+    // for(let key in  plan)
+    // {
+    //     if(typeof(plan[key])==="object"){
+    //         for(let i in plan[key])
+    //         {
+    //             if(typeof(plan[key][i])==='object'&& !Array.isArray(plan[key][i]))
+    //             {
+    //                 //console.log(Object.keys(plan[key][i]).length);
+    //                 if(Object.keys(plan[key][i]).length==0)
+    //                 {
+    //                     return "";
+    //                 }
+    //                 else{
+    //                     for(let j in plan[key][i])
+    //                     {
+    //                     //console.log(plan[key][i][j]);
+    //                     str+=`Язык ${j} изучен на ${plan[key][i][j]}\n`;
+    //                     }
+    //                 }
+                    
+    //             }
+    //             //console.log(`Ключ - ${i} Значення - ${ plan[key][i]}`);
+    //         }
+
+    //     }
+    // }
+    return str;
+
+}
+
+console.log(showProgrammingLangs(personalPlanPeter));
+
+function showExperience(plan) {
+
+    //Деструктурізація
+    const {exp} = plan.skills;
+    return exp;
+
+    //return plan.skills.exp;
+
+}
+
+console.log(showExperience(personalPlanPeter));
+//-------------------------------------------------
+
+const family = ['Peter', 'Ann', 'Alex', 'Linda'];
+
+function showFamily(arr) {
+ 
+    if(arr.lenght==0){ return  "Семья пуста";}
+    let str = "Семья состоит из:";
+    arr.forEach(function(item){
+        str+=` ${item}`;
+    });
+    return str;
+
+
+}
+
+console.log(showFamily(family));
+
+
+const favoriteCities = ['liSBon', 'ROME', 'miLan', 'Dublin'];
+
+function standardizeStrings(arr) {
+    arr.forEach((item)=>{
+        console.log(`${item}`.toLowerCase());
+    });
+}
+
+standardizeStrings(favoriteCities);
+
+//--------------------------------------------
+
+const someString = 'This is some strange string';
+
+function reverse(str) {
+
+    if(typeof(str)!="string")
+    {
+        return "Ошибка";
+    }
+    // const arr=  Array.from(str).reverse();
+    // return arr.join("");
+    return str.split("").reverse().join("");
+
+}
+
+console.log(reverse(someString));
+
+//----------------------------------
+
+const baseCurrencies = ['USD', 'EUR'];
+const additionalCurrencies = ['UAH', 'RUB', 'CNY'];
+
+function availableCurr(arr, missingCurr) {
+
+    let str="";
+    arr.length === 0 ? str = "Нет доступных валют" : str = "Доступные валюты:\n";
+    // let str = "Доступные валюты:\n";
+    // if(arr.length==0)
+    // {
+    //     return "Нет доступных валют";
+    // }
+    // for(let i=0;i<arr.length;++i){
+    //     if(arr[i]===missingCurr) {continue;}
+    //     str+=`${arr[i]}\n`;
+    // }
+    
+    arr.forEach(item=>{
+        if(item!==missingCurr){
+            str+=`${item}\n`;
+        }
+    });
+    return str;
+    
+}
+
+console.log(availableCurr([...baseCurrencies,...additionalCurrencies],'CNY'));
+

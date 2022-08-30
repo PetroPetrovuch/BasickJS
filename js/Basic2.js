@@ -280,8 +280,34 @@ console.log(Object.assign(numbers,add));//Поєднує два обєкта
 console.log(Object.assign({},numbers));//Копіює обєкт
 
 
+//Спосіб N3 копіювання масивів
+
+const video = ["Youtube","rutube"],
+    blogs = ["Wordpress","blogger"],
+    internet = [...video,...blogs,"vk","facebook"];
+console.log(internet);    
+
+function log(a,b,c)
+{
+    console.log(a,b,c);
+}
+
+const num =[1,2,3];
+log(...num);
+
+//4 Спосіб 
+
+const newArray = [...num];
+console.log(newArray);
 
 
+const newObj = {
+    a:"a",
+    b:"b"
+};
+
+const copyObj = {...newObj};
+console.log(copyObj);
 
 
 

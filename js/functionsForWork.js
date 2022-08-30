@@ -30,11 +30,14 @@ console.log(obj);
 
 const arr = [1,22,4,7,10,50,30];
 console.log(arr.sort());//Сортує як строку
-arr.sort((a,b)=> a-b); 
+arr.sort((a,b)=> a-b);//Сортує по числах 
 console.log(arr);
 console.log(arr.pop());//Видаляє останій елемент в масиві
 console.log(arr.push(20));//Добавляє елемент в кінець масива
 console.log(arr);
+
+console.log(arr.reverse());//Розвертає масив
+
 //Перебор елементів масива
 for(let value of arr)
 {
@@ -44,7 +47,7 @@ for(let value of arr)
 let str = arr.join(",");//Конвертує масив в строку
 console.log(typeof(str));
 
-const arr2=str.split();
+const arr2=str.split();//Конвертує строку в масив
 console.log(arr2);
 
 console.log();
