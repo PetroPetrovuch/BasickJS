@@ -88,23 +88,23 @@ function Hello(name)
    return `Hello ${name}`;
 }
 
-console(Hello("Alex"));
+console.log(Hello("Alex"));
 
 //Profesional function
 const welcome = name => `Hello ${name}`;
 console.log(welcome("Alex"));
 
 let a = 10;//Глобальна перемінна
-function foo()
-{
-    a=5;
-    let b=15;//Локальна
-    console.log(b);
-    return a;
+// function foo()
+// {
+//     a=5;
+//     let b=15;//Локальна
+//     console.log(b);
+//     return a;
     
-}
+// }
 
-console.log(foo());
+// console.log(foo());
 
 //Замикання
 
@@ -122,11 +122,11 @@ console.log(counter());
 console.log(counter());
 console.log(counter());
 
-function foo()
-{
+// function foo()
+// {
 
-}
-console.log(foo());//Повертає undefined функція завжди щось повертає
+// }
+// console.log(foo());//Повертає undefined функція завжди щось повертає
 
 //Корисні функції
 
@@ -300,6 +300,9 @@ log(...num);
 const newArray = [...num];
 console.log(newArray);
 
+// const oldArray = ["a","b","c"];
+// const newArray = oldArray.slice();
+
 
 const newObj = {
     a:"a",
@@ -308,6 +311,40 @@ const newObj = {
 
 const copyObj = {...newObj};
 console.log(copyObj);
+
+//console.log(typeof(prompt("Вам 18?")));
+
+
+//Наслідування
+
+const Soldier = {
+    
+    Health : 200,
+};
+
+const general = Object.create(Soldier);
+console.log(general.Health);
+
+
+//Динамічна типізація
+//Приведення до строки 
+
+const nuM = 10;
+
+console.log("categories/"+nuM);
+console.log(`categories/${nuM}`);
+
+
+//Приведення до числа
+
+console.log(typeof(+"10"));
+console.log(parseInt("15px",10));
+
+//To boolean
+
+//0,'',null,undefined,NaN - false
+
+
 
 
 

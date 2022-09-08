@@ -50,6 +50,8 @@ console.log(typeof(str));
 const arr2=str.split();//Конвертує строку в масив
 console.log(arr2);
 
+console.log("Hello".slice(0,-1));
+
 console.log();
 
 //Копіювання обєкту

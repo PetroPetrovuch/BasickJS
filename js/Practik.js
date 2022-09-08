@@ -362,3 +362,138 @@ function availableCurr(arr, missingCurr) {
 
 console.log(availableCurr([...baseCurrencies,...additionalCurrencies],'CNY'));
 
+
+//-----------------------------------------------------------
+
+const shoppingMallData = {
+    shops: [
+        {
+            width: 10,
+            length: 5
+        },
+        {
+            width: 15,
+            length: 7
+        },
+        {
+            width: 20,
+            length: 5
+        },
+        {
+            width: 8,
+            length: 10
+        }
+    ],
+  
+    height: 5,
+    moneyPer1m3: 30,
+    budget: 50000
+};
+
+function isBudgetEnough(data) {
+    
+    let area = 0;
+    let volume = 0;
+
+    data.shops.forEach(item=>{
+        area+=item.length*item.width;
+    });
+    
+    volume = data.height*area;
+    
+    if(data.budget - (volume*data.moneyPer1m3)>=0){
+    return 'Бюджета достаточно';
+} else {
+    return 'Бюджета недостаточно';
+}
+
+
+
+}
+
+isBudgetEnough(shoppingMallData);
+
+
+// let arr = [1,2,6,7,10,20];
+// arr.forEach((item,i)=>{
+//     console.log(item);
+// });
+
+
+
+//------------------------------------------------
+
+const students = ['Peter', 'Andrew', 'Ann', 'Mark', 'Josh', 'Sandra', 'Cris', 'Bernard','Sam'];
+
+function sortStudentsByGroups(arr) {
+ 
+  
+    arr.sort();
+    
+ 
+    const studentsGroup = [];
+    let studentsLength = 0;
+    let str = "Оставшиеся студенты: ";
+    let rest = false;
+   
+    for(let j=0;studentsLength<arr.length;++j){
+        const group =[];
+        for(let i=0;i<3;++i)
+        {
+            if(studentsLength==arr.length){
+                rest=true;
+                break;
+            }
+                 group[i]=arr[studentsLength];
+                ++studentsLength;
+        }
+        if(group.length<3)
+        {
+           str+=group.join(", ");
+            studentsGroup.push(str);
+        }
+        else
+        {
+        studentsGroup[j]=group;
+     
+        }
+        
+    }
+    if(!rest)
+    {
+        str+= "-";
+        studentsGroup.push(str);
+    
+    }
+    return studentsGroup;
+   
+}
+
+
+console.log(sortStudentsByGroups(students));
+
+
+//Задача на рекурсію,Факторіал
+
+
+function factorial(n) {
+   
+    if (typeof(n) !== 'number' || !Number.isInteger(n)) {
+        return "Ошибка, проверьте данные";
+    }
+
+    if(n>=1)
+    {
+        return n*factorial(n-1);
+    }
+    else{
+        return 1;
+    }
+    
+}
+
+
+console.log(factorial(3));
+
+
+

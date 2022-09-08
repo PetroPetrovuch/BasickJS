@@ -71,10 +71,6 @@ if(1)
 
 console.log(user);//Alex
 
-
-
-
-
 //Питання по функціях
 //1.Замикання
 //Це коли функція замкнута на області видимості батьківської елемента
@@ -110,6 +106,14 @@ function Expression()
 }
 
 let ex = Expression();
+
+//Приклад function expresion
+
+const res = getSum(5, 6);
+const getSum = function(a, b) {
+    return a + b;
+}
+
 
 
 //3.Стрілочні функції
@@ -154,3 +158,61 @@ const arr=[1,2,3,4,5];
 arr[20]=100;
 console.log(arr);
 console.log(arr.length);//Показує 21 а елементів 6 явних
+
+//Деструктуризація масива
+function foo(a,b) {
+    
+    const [first] = a;
+    console.log(first);
+    const {eng} = b;
+ 
+    return `${first} ${eng}`;
+}
+ 
+const result = foo(['Hello', 'Привет'], {ru: 'Мир', eng: 'World'});
+
+const array = [1,2,3,4,5];
+const [one,two] =array;
+console.log(one,two);
+
+//Поміняти місцями значення переміних
+
+let a =10,b = 15;
+
+[a,b]=[b,a];
+
+console.log(a,b);
+
+
+//----------------------
+
+console.log(0 || 2);//Повертає перший істиний
+console.log(3 && 0);//Повертає перший неправдивий
+console.log("a" > "b");//false
+console.log(0 || NaN || false || null);
+
+//Пустий масив приводиться ло строки
+console.log(typeof([]+false));//"false"
+console.log([]+false - null + true);//NaN не підлягає вичесленю
+
+let y = 1; let x = y = 2; console.log(x); 
+
+console.log([]+1+2);//"12"
+
+console.log("1"[0]);//Звернення по індексу до строки так як строка то масив
+
+console.log(2 && 1 && null && 0 && undefined );//null
+
+console.log(null || 2 && 3 || 4 );//3
+
+console.log(0 || "" || 2 || undefined || true || falsе );//2
+
+console.log(!!(1&&2)===(1&&2));//false !! приводить до bool
+
+console.log(+"infynity");//NaN
+
+const d = [1,2,3];
+const s = [1,2,3];
+console.log(d==s);//false
+
+console.log("Ёжик" > "яблоко");
